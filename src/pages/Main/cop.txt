@@ -25,32 +25,32 @@ function Main() {
   const [selectedUf, setSelectedUf] = useState('0');
   const [selectedCity, setSelectedCity] = useState('0');
 
+  // const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
-
   const profiles = useSelector((state) => state.search.profiles);
 
+  // useEffect(() => {
+  //   console.log(profiles);
+  //   setUsers(profiles);
+  // }, [profiles]);
+
   useEffect(async () => {
-    const pagee = String(page);
     const resolve = await api.get(`/users/?page=${page}`);
     const userss = resolve.data.map((user) => {
       user.contact = whats + user.whatsapp;
       return user;
     });
-    console.log(userss);
     dispatch(searchActions.indexSuccess(userss));
-  }, []);
+    // setUsers(userss);
+  }, [page]);
 
   // useEffect(() => {
-  //   return dispatch(searchActions.indexRequest(page));
+  // return dispatch(searchActions.indexRequest(page));
   // }, [page]);
 
   function handleSubmitSearch() {
     dispatch(searchActions.indexRequest(selectedUf, selectedCity));
   }
-
-  useEffect(() => {
-    dispatch(searchActions.indexPageRequest(page, selectedUf, selectedCity));
-  }, [page]);
 
   // ---
   useEffect(() => {
