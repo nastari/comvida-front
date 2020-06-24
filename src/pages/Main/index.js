@@ -29,22 +29,8 @@ function Main() {
 
   const profiles = useSelector((state) => state.search.profiles);
 
-  useEffect(async () => {
-    const pagee = String(page);
-    const resolve = await api.get(`/users/?page=${page}`);
-    const userss = resolve.data.map((user) => {
-      user.contact = whats + user.whatsapp;
-      return user;
-    });
-    console.log(userss);
-    dispatch(searchActions.indexSuccess(userss));
-  }, []);
-
-  // useEffect(() => {
-  //   return dispatch(searchActions.indexRequest(page));
-  // }, [page]);
-
   function handleSubmitSearch() {
+    setPage(1);
     dispatch(searchActions.indexRequest(selectedUf, selectedCity));
   }
 
@@ -86,6 +72,10 @@ function Main() {
   }
   // ---
 
+  useEffect(() => {
+    setSelectedCity('0');
+  }, [selectedUf]);
+
   return (
     <>
       <Header />
@@ -98,11 +88,12 @@ function Main() {
             onChange={handleSelectUf}
           >
             <option value="0">Selecione o estado</option>
-            {ufs.map((uf) => (
-              <option key={uf} value={uf}>
-                {uf}
-              </option>
-            ))}
+            {ufs &&
+              ufs.map((uf) => (
+                <option key={uf} value={uf}>
+                  {uf}
+                </option>
+              ))}
           </select>
 
           <select
@@ -112,11 +103,12 @@ function Main() {
             onChange={handleSelectCity}
           >
             <option value="0">Selecione a cidade</option>
-            {cities.map((city) => (
-              <option key={city} value={city}>
-                {city}
-              </option>
-            ))}
+            {cities &&
+              cities.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
           </select>
           <Button onClick={handleSubmitSearch}>Procurar</Button>
         </SearchField>

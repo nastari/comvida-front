@@ -7,21 +7,20 @@ const whats = 'https://wa.me/';
 
 function index({ uf, city }) {
   if (uf !== '0' && city !== '0') {
-    return api.get(`/users/?uf=${uf}&city=${city}`);
+    return api.get(`/users/?page=1&uf=${uf}&city=${city}`);
   }
   if (uf !== '0' && city === '0') {
-    return api.get(`/users/?uf=${uf}`);
+    return api.get(`/users/?page=1&uf=${uf}`);
   }
   if (uf === '0' && city !== '0') {
-    return api.get(`/users/?city=${city}`);
+    return api.get(`/users/?page=1&city=${city}`);
   }
 }
 
 function* indexAPI({ payload }) {
   try {
-    console.log(payload);
+    console.log('e nada no saga');
     const resolve = yield call(index, payload);
-
     const users = resolve.data.map((user) => {
       user.contact = whats + user.whatsapp;
       return user;
@@ -43,6 +42,7 @@ function indexPage({ page, uf, city }) {
   if (uf === '0' && city !== '0') {
     return api.get(`/users/?page=${page}&city=${city}`);
   }
+  return api.get(`/users/?page=${page}`);
 }
 
 function* indexPageAPI({ payload }) {
