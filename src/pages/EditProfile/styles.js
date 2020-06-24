@@ -34,6 +34,10 @@ export const FormProfile = styled.div`
     button {
       margin-top: 10px;
     }
+
+    img {
+      border-radius: 5px;
+    }
   }
 
   form.form-main {

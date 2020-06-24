@@ -54,6 +54,12 @@ export const ProfilesField = styled.div`
       margin-top: -50px;
       margin-left: 100px;
     }
+
+    small {
+      color: #999;
+      font-size: 16px;
+      font-weight: bold;
+    }
   }
 `;
 export const Profile = styled.div`
@@ -86,16 +92,17 @@ export const Profile = styled.div`
     height: 240px;
 
     h1 {
-      font-size: 16px;
+      font-size: 21px;
     }
 
     h2 {
-      font-size: 14px;
-      color: #999;
+      font-size: 16px;
+      color: blue;
+      font-weight: bold;
     }
 
     p {
-      font-style: italic;
+      font-size: 12px;
     }
 
     a {

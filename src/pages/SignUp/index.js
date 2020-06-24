@@ -11,7 +11,10 @@ import * as userActions from '../../store/modules/user/actions';
 function SignUp() {
   const dispatch = useDispatch();
   const registerSchema = Yup.object().shape({
-    name: Yup.string().required('Seu nome é importante'),
+    name: Yup.string()
+      .min(4, 'Coloque uma nome de pelo menos 4 dígitos.')
+      .max(20, 'No máximo 20 caracteres.')
+      .required('Seu nome é importante'),
     email: Yup.string()
       .email('Coloque um email válido')
       .required('Seu email é importante.'),
@@ -19,8 +22,8 @@ function SignUp() {
       .min(6, 'Coloque uma senha de pelo menos 6 dígitos.')
       .required('Uma senha é importante'),
     confirm: Yup.string().oneOf(
-      [Yup.ref('password'), null],
-      'Sua senha não tá coincidindo.'
+      [Yup.ref('password')],
+      'Sua senha não esta coincidindo.'
     ),
   });
 

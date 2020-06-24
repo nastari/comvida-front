@@ -130,8 +130,7 @@ function Main() {
             ))
           ) : (
             <div className="find">
-              <h1>Ainda não tem ninguém aqui não!</h1>
-              <small>Não há resultados para página {page}</small>
+              <h1>Ainda não tem ninguém aqui não !</h1>
               <h2>
                 Mas você pode ajudar divulgando pra alguém que precisa! Que tal?
               </h2>
@@ -140,36 +139,35 @@ function Main() {
           )}
         </ProfilesField>
         <Pagination>
-          <>
-            {page === 1 ? (
-              <>
-                <button type="button">{page}</button>
-                <button type="button" onClick={() => setPage(page + 1)}>
-                  {page + 1}
-                </button>
-                <button type="button" onClick={() => setPage(page + 2)}>
-                  {page + 2}
-                </button>
-              </>
-            ) : (
-              <>
-                {page > 2 && !profiles.length ? (
-                  <button type="button" onClick={() => setPage(1)}>
-                    1
+          {profiles.length ? (
+            <>
+              {page === 1 ? (
+                <>
+                  <button type="button">{page}</button>
+                  <button type="button" onClick={() => setPage(page + 1)}>
+                    {page + 1}
                   </button>
-                ) : null}
-                <button type="button" onClick={() => setPage(page - 1)}>
-                  {page - 1}
-                </button>
-                <button type="button" onClick={() => setPage(page)}>
-                  {page}
-                </button>
-                <button type="button" onClick={() => setPage(page + 1)}>
-                  {page + 1}
-                </button>
-              </>
-            )}
-          </>
+                  <button type="button" onClick={() => setPage(page + 2)}>
+                    {page + 2}
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button type="button" onClick={() => setPage(page - 1)}>
+                    {page - 1}
+                  </button>
+                  <button type="button" onClick={() => setPage(page)}>
+                    {page}
+                  </button>
+                  <button type="button" onClick={() => setPage(page + 1)}>
+                    {page + 1}
+                  </button>
+                </>
+              )}
+            </>
+          ) : (
+            <> </>
+          )}
         </Pagination>
       </Container>
     </>

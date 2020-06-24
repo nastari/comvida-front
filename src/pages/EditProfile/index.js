@@ -56,12 +56,19 @@ function EditProfile() {
     setSelectedCity(city);
   }
 
+  useEffect(() => {
+    setSelectedUf(user.uf);
+    setSelectedCity(user.city);
+  }, [user]);
+
   const postSchema = Yup.object().shape({
     name: Yup.string()
       .min(4, 'Pelo menos 4 caracteres.')
+      .max(20, 'No máximo 20 caracteres.')
       .required('Seu nome é importante'),
     description: Yup.string()
       .min(50, 'Coloque pelo menos 50 caracteres.')
+      .max(520, 'Máximo 520 caracteres.')
       .required('Sua descrição é importante'),
     whatsapp: Yup.string()
       .min(8, 'Coloque uma senha de pelo menos 6 dígitos.')
