@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../assets/images/ComVida.svg';
 import { Container } from './styles';
 import * as authAction from '../../store/modules/auth/actions';
+import * as searchActions from '../../store/modules/search/actions';
 
 function Header() {
   const dispatch = useDispatch();
@@ -13,9 +14,13 @@ function Header() {
     dispatch(authAction.singOut());
   };
 
+  function handleMainState() {
+    dispatch(searchActions.indexPageRequest(1, '0', '0'));
+  }
+
   return (
     <Container>
-      <Link to="/main">
+      <Link to="/main" onClick={handleMainState}>
         <img src={logo} alt="ComVida" />
       </Link>
       <div>

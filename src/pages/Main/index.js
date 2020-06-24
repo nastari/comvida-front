@@ -12,12 +12,9 @@ import fotouser from '../../assets/images/user.png';
 import findSomeone from '../../assets/images/search.svg';
 import Header from '../../components/Header';
 import Button from '../../components/Button';
-import api from '../../services/api';
 import * as searchActions from '../../store/modules/search/actions';
 
 function Main() {
-  const whats = 'https://wa.me/';
-
   const dispatch = useDispatch();
 
   const [ufs, setUfs] = useState([]);
