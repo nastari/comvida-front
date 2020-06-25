@@ -42,6 +42,13 @@ export default function user(state = INITIAL_STATE, action) {
       return produce(state, (draft) => {
         draft.profile = null;
       });
+
+    case '@user/file_success':
+      return produce(state, (draft) => {
+        draft.profile.avatar = action.payload;
+        draft.profile.avatar_id = action.payload.id;
+      });
+
     default:
       return state;
   }

@@ -9,6 +9,7 @@ import Header from '../../components/Header';
 import { Container, FormProfile } from './styles';
 import userfoto from '../../assets/images/user.png';
 import * as userActions from '../../store/modules/user/actions';
+import AvatarInput from './AvatarInput';
 
 function EditProfile() {
   const dispatch = useDispatch();
@@ -82,11 +83,15 @@ function EditProfile() {
         <h1> Coloque seu perfil online preenchendo aqui. :)</h1>
         <FormProfile>
           <div>
-            <img src={userfoto} alt="" />
+            <AvatarInput />
 
             <Formik
               initialValues={{}}
               onSubmit={(values) => {
+                if (!user.avatar) {
+                  toast.error('Entre com uma foto');
+                  return;
+                }
                 if (user.online === false) {
                   values.online = true;
                   if (selectedUf === '0' || selectedCity === '0') {

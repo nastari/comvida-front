@@ -8,7 +8,6 @@ import {
   Profile,
   Pagination,
 } from './styles';
-import fotouser from '../../assets/images/user.png';
 import findSomeone from '../../assets/images/search.svg';
 import Header from '../../components/Header';
 import Button from '../../components/Button';
@@ -73,6 +72,8 @@ function Main() {
     setSelectedCity('0');
   }, [selectedUf]);
 
+  console.log(profiles);
+
   return (
     <>
       <Header />
@@ -114,7 +115,7 @@ function Main() {
           {profiles.length ? (
             profiles.map((user) => (
               <Profile key={user.id}>
-                <img src={fotouser} alt="usuario" />
+                <img src={user.avatar.url} alt="usuario" />
                 <div>
                   <h1>{user.name}</h1>
                   <h2>

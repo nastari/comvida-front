@@ -71,10 +71,9 @@ export function resetRequest(data) {
     payload: data,
   };
 }
-
 export function resetSuccess(data) {
   return {
-    type: '@user/reset_success',
+    type: '@user/reset_sucess',
     payload: data,
   };
 }
@@ -82,6 +81,15 @@ export function resetSuccess(data) {
 export function resetFailure(data) {
   return {
     type: '@user/reset_failure',
+    payload: data,
+  };
+}
+
+// File
+
+export function fileSuccess(data) {
+  return {
+    type: '@user/file_success',
     payload: data,
   };
 }
