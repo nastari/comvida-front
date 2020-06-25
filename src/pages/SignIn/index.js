@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import family from '../../assets/images/familys.svg';
 import { Container, SubmitArea } from './styles';
 import Button from '../../components/Button';
@@ -10,7 +10,6 @@ import * as authActions from '../../store/modules/auth/actions';
 
 function SignIn() {
   const dispatch = useDispatch();
-  const signed = useSelector((state) => state.auth.signed);
 
   const loginSchema = Yup.object().shape({
     email: Yup.string()
@@ -23,7 +22,6 @@ function SignIn() {
 
   return (
     <Container>
-      {signed ? <Redirect to="/main" /> : null}
       <SubmitArea>
         <Formik
           initialValues={{ email: '', password: '' }}

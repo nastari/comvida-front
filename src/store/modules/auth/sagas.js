@@ -9,6 +9,7 @@ function* login({ payload }) {
     const session = yield call(api.post, 'session', payload);
 
     yield put(authActions.loginSuccess(session.data));
+    history.push('/main');
   } catch (error) {
     toast.error('Verifique seus dados.');
     yield put(authActions.loginFailure(error));

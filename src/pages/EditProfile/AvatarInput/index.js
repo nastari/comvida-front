@@ -20,7 +20,6 @@ function AvatarInput() {
   }
 
   useEffect(() => {
-    console.log(profile);
     if (profile.avatar) {
       setPreview(profile.avatar.url);
     }

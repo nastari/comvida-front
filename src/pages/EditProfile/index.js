@@ -7,15 +7,15 @@ import { toast } from 'react-toastify';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import { Container, FormProfile } from './styles';
-import userfoto from '../../assets/images/user.png';
 import * as userActions from '../../store/modules/user/actions';
 import AvatarInput from './AvatarInput';
 
 function EditProfile() {
   const dispatch = useDispatch();
+
   const [ufs, setUfs] = useState([]);
-  const [cities, setCities] = useState([]);
   const [selectedUf, setSelectedUf] = useState('0');
+  const [cities, setCities] = useState([]);
   const [selectedCity, setSelectedCity] = useState('0');
 
   const user = useSelector((state) => state.user.profile);
@@ -31,7 +31,6 @@ function EditProfile() {
         setUfs(ufNames);
       });
   }, []);
-
   useEffect(() => {
     if (selectedUf === '0') {
       return;
@@ -42,21 +41,9 @@ function EditProfile() {
       )
       .then((response) => {
         const cityNames = response.data.map((city) => city.nome);
-
         setCities(cityNames);
       });
   }, [selectedUf]);
-
-  function handleSelectUf(e) {
-    const uf = e.target.value;
-    setSelectedUf(uf);
-    setSelectedCity('0');
-  }
-
-  function handleSelectCity(e) {
-    const city = e.target.value;
-    setSelectedCity(city);
-  }
 
   useEffect(() => {
     setSelectedUf(user.uf);
@@ -89,28 +76,21 @@ function EditProfile() {
             <Formik
               initialValues={{}}
               onSubmit={(values) => {
-                if (!user.avatar) {
-                  toast.error('Entre com uma foto');
+                if (
+                  !user.avatar ||
+                  !user.uf ||
+                  !user.city ||
+                  user.uf === '0' ||
+                  user.city === '0'
+                ) {
+                  toast.error('Coloque seu foto e a localidade');
                   return;
                 }
                 if (user.online === false) {
                   values.online = true;
-                  if (
-                    selectedUf === '0' ||
-                    selectedUf === null ||
-                    selectedCity === null ||
-                    selectedCity === '0'
-                  ) {
-                    toast.error('Entre com sua localização');
-                    return;
-                  }
                 } else {
                   values.online = false;
                 }
-                console.log('AQUIIIII');
-                console.log(selectedUf);
-                console.log(selectedCity);
-                console.log('AQUIII');
                 dispatch(userActions.updateRequest(values));
               }}
             >
@@ -144,23 +124,23 @@ function EditProfile() {
             initialValues={{
               name: user.name || '',
               description: user.description || '',
-              uf: user.uf || '',
-              city: user.city || '',
+              uf: user.uf || '0',
+              city: user.city || '0',
               whatsapp: user.whatsapp || '',
             }}
             onSubmit={(values) => {
-              values.uf = selectedUf;
               values.city = selectedCity;
+              values.uf = selectedUf;
               if (
-                values.uf === '0' ||
-                values.uf === null ||
+                !values.city ||
+                !values.uf ||
                 values.city === '0' ||
-                values.city === null
+                values.city === '0'
               ) {
-                toast.error('Entre com sua localização');
+                toast.error('Preencha sua localização');
                 return;
               }
-              console.log(values.uf);
+              console.log(values);
               dispatch(userActions.updateRequest(values));
             }}
             validationSchema={postSchema}
@@ -172,40 +152,40 @@ function EditProfile() {
                 component="textarea"
                 type="text"
                 name="description"
-                placeholder="Conte um pouco sobre você e se precisas de ajuda. "
+                placeholder="Conte um pouco sobre você e sua necessidade!"
               />
               <ErrorMessage name="description" component="div" />
-              <Field
-                as="select"
-                onChange={handleSelectUf}
-                value={selectedUf}
-                type="text"
-                name="uf"
-                placeholder="Seu estado"
-              >
-                <option value="0">Selecione seu estado</option>
-                {ufs.map((uf) => (
-                  <option key={uf} value={uf}>
-                    {uf}
-                  </option>
-                ))}
-              </Field>
 
               <Field
                 as="select"
-                type="text"
-                name="city"
-                value={selectedCity}
-                placeholder="Sua cidade"
-                onChange={handleSelectCity}
+                name="uf"
+                value={selectedUf}
+                onChange={(e) => {
+                  setSelectedUf(e.target.value);
+                  setSelectedCity('0');
+                }}
               >
-                <option value="0">Selecione a cidade</option>
-                {cities.map((city) => (
-                  <option key={city} value={city}>
-                    {city}
-                  </option>
+                <option value="0">Selecione seu estado</option>
+                {ufs.map((uf) => (
+                  <option value={uf}>{uf}</option>
                 ))}
               </Field>
+              <ErrorMessage name="uf" component="div" />
+              <Field
+                as="select"
+                name="city"
+                value={selectedCity}
+                onChange={(e) => {
+                  setSelectedCity(e.target.value);
+                }}
+              >
+                <option value="0">Selecione sua cidade</option>
+                {cities.map((city) => (
+                  <option value={city}>{city}</option>
+                ))}
+              </Field>
+              <ErrorMessage name="city" component="div" />
+
               <Field type="text" name="whatsapp" placeholder="Seu WhatsApp!" />
               <ErrorMessage name="whatsapp" component="div" />
               <Button type="submit" color="rgb(50,50,50)" width="500">

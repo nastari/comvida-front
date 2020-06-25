@@ -20,7 +20,6 @@ export default function Routes() {
         <Route path="/login" component={SignIn} isWelcome />
         <Route path="/forgot" component={ForgotPassword} />
         <Route path="/reset" component={ResetPassword} />
-
         <Route path="/editprofile" component={EditProfile} isPrivate />
       </Switch>
     </BrowserRouter>
