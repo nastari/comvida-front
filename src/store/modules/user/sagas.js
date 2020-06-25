@@ -9,7 +9,6 @@ function* registerAPI({ payload }) {
     const user = yield call(api.post, 'user', payload);
 
     yield put(userActions.registerSuccess(user.data));
-    history.push('/login');
   } catch (error) {
     toast.error('Falha ao registrar');
     yield put(userActions.registerFailure(error));

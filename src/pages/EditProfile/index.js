@@ -95,13 +95,22 @@ function EditProfile() {
                 }
                 if (user.online === false) {
                   values.online = true;
-                  if (selectedUf === '0' || selectedCity === '0') {
+                  if (
+                    selectedUf === '0' ||
+                    selectedUf === null ||
+                    selectedCity === null ||
+                    selectedCity === '0'
+                  ) {
                     toast.error('Entre com sua localização');
                     return;
                   }
                 } else {
                   values.online = false;
                 }
+                console.log('AQUIIIII');
+                console.log(selectedUf);
+                console.log(selectedCity);
+                console.log('AQUIII');
                 dispatch(userActions.updateRequest(values));
               }}
             >
@@ -142,7 +151,12 @@ function EditProfile() {
             onSubmit={(values) => {
               values.uf = selectedUf;
               values.city = selectedCity;
-              if (values.uf === '0' || values.city === '0') {
+              if (
+                values.uf === '0' ||
+                values.uf === null ||
+                values.city === '0' ||
+                values.city === null
+              ) {
                 toast.error('Entre com sua localização');
                 return;
               }
