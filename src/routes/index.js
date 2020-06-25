@@ -4,7 +4,7 @@ import Route from './Route';
 import Landing from '../pages/Landing';
 import Main from '../pages/Main';
 import SignUp from '../pages/SignUp';
-import Profile from '../pages/Profile';
+
 import EditProfile from '../pages/EditProfile';
 import SignIn from '../pages/SignIn';
 import ForgotPassword from '../pages/ForgotPassword';
@@ -20,7 +20,6 @@ export default function Routes() {
         <Route path="/login" component={SignIn} isWelcome />
         <Route path="/forgot" component={ForgotPassword} />
         <Route path="/reset" component={ResetPassword} />
-        <Route path="/profile" component={Profile} />
 
         <Route path="/editprofile" component={EditProfile} isPrivate />
       </Switch>
