@@ -50,6 +50,7 @@ function EditProfile() {
   function handleSelectUf(e) {
     const uf = e.target.value;
     setSelectedUf(uf);
+    setSelectedCity('0');
   }
 
   function handleSelectCity(e) {

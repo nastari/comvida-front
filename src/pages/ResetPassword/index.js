@@ -1,7 +1,8 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { Container, SubmitArea } from './styles';
 import Button from '../../components/Button';
 import * as userAction from '../../store/modules/user/actions';
@@ -18,8 +19,11 @@ function ResetPassword() {
     ),
   });
 
+  const isForgot = useSelector((state) => state.user.isForgot);
+
   return (
     <Container>
+      {!isForgot ? <Redirect to="/login" /> : null}
       <h1>Insira sua nova senha!</h1>
       <SubmitArea>
         <Formik
