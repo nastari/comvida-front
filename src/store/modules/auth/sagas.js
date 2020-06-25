@@ -2,6 +2,7 @@ import { takeLatest, all, put, call } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 import api from '../../../services/api';
 import * as authActions from './actions';
+import history from '../../../services/history';
 
 function* login({ payload }) {
   try {
