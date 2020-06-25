@@ -66,7 +66,7 @@ function EditProfile() {
   const postSchema = Yup.object().shape({
     name: Yup.string()
       .min(4, 'Pelo menos 4 caracteres.')
-      .max(20, 'No máximo 20 caracteres.')
+      .max(32, 'No máximo 32 caracteres.')
       .required('Seu nome é importante'),
     description: Yup.string()
       .min(50, 'Coloque pelo menos 50 caracteres.')
@@ -107,11 +107,11 @@ function EditProfile() {
             >
               <Form>
                 {user.online ? (
-                  <Button type="submit" color="#F55AC1" width="500">
+                  <Button type="submit" color="rgb(2,2,250)" width="500">
                     RETIRAR PERFIL ONLINE
                   </Button>
                 ) : (
-                  <Button type="submit" color="#00A410" width="500">
+                  <Button type="submit" color="rgb(9,199,35)" width="500">
                     POR PERFIL ONLINE
                   </Button>
                 )}
@@ -124,7 +124,7 @@ function EditProfile() {
               }}
             >
               <Form>
-                <Button type="submit" color="rgb(220,40,90)" width="500">
+                <Button type="submit" color="rgb(150,20,40,1)" width="500">
                   DELETAR CONTA
                 </Button>
               </Form>
