@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { withRouter } from 'react-router';
 import logo from '../../assets/images/ComVida.svg';
 import { Container } from './styles';
 import * as authAction from '../../store/modules/auth/actions';
@@ -42,4 +43,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default withRouter(Header);
