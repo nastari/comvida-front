@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   Container,
   SearchField,
@@ -10,7 +11,9 @@ import {
 } from './styles';
 import findSomeone from '../../assets/images/search.svg';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import Button from '../../components/Button';
+
 import * as searchActions from '../../store/modules/search/actions';
 
 function Main() {
@@ -174,6 +177,7 @@ function Main() {
             )}
           </>
         </Pagination>
+        <Footer />
       </Container>
     </>
   );
