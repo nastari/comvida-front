@@ -93,3 +93,26 @@ export function fileSuccess(data) {
     payload: data,
   };
 }
+
+// delete
+
+// delete
+
+export function deleteRequest() {
+  return {
+    type: '@user/delete_request',
+  };
+}
+
+export function deleteSuccess(payload) {
+  return {
+    type: '@user/delete_success',
+    payload,
+  };
+}
+export function deleteFailure(payload) {
+  return {
+    type: '@user/delete_failure',
+    payload,
+  };
+}

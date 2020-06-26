@@ -70,6 +70,11 @@ export default function user(state = INITIAL_STATE, action) {
         draft.isForgot = false;
       });
 
+    case '@user/delete_success':
+      return produce(state, (draft) => {
+        draft.profile = null;
+      });
+
     default:
       return state;
   }

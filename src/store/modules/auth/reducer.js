@@ -29,6 +29,13 @@ export default function auth(state = INITIAL_STATE, action) {
         draft.token = null;
         draft.signed = false;
       });
+
+    case '@user/delete_success':
+      return produce(state, (draft) => {
+        draft.token = null;
+        draft.signed = false;
+      });
+
     default:
       return state;
   }

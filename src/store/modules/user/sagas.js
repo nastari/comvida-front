@@ -49,9 +49,21 @@ function* resetAPI({ payload }) {
   }
 }
 
+function* deleteAPI() {
+  try {
+    const resolve = yield call(api.delete, 'user');
+    yield put(userActions.deleteSuccess(resolve.data));
+    history.push('/');
+  } catch (error) {
+    toast.error('Algo inesperado aconteceu.');
+    yield put(userActions.deleteFailure(error));
+  }
+}
+
 export default all([
   takeLatest('@user/register_request', registerAPI),
   takeLatest('@user/update_request', updateAPI),
   takeLatest('@user/forgot_request', forgotAPI),
   takeLatest('@user/reset_request', resetAPI),
+  takeLatest('@user/delete_request', deleteAPI),
 ]);
