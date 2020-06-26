@@ -13,13 +13,12 @@ function Footer() {
       </div>
       <div>
         <a href="https://www.linkedin.com/in/julianoalves7/">
-          Juliano Alves <FaLinkedinIn color="rgb(99, 165, 167)" />
+          Juliano Alves
+          <FaLinkedinIn color="rgb(99, 165, 167)" />
         </a>
       </div>
       <div>
-        <a href="https://stories.freepik.com/">
-          Stories <FaLinkedinIn color="rgb(99, 165, 167)" />
-        </a>
+        <a href="https://stories.freepik.com/">Stories Illustrations</a>
       </div>
     </Container>
   );

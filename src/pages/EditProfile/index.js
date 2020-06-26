@@ -61,7 +61,8 @@ function EditProfile() {
       .max(520, 'Máximo 520 caracteres.')
       .required('Sua descrição é importante'),
     whatsapp: Yup.string()
-      .min(8, 'Coloque uma senha de pelo menos 6 dígitos.')
+      .min(10, 'Coloque seu DDD e número')
+      .max(11, 'Máximo 11 digitos')
       .required('Insira seu Whats App.'),
   });
 
@@ -77,14 +78,17 @@ function EditProfile() {
             <Formik
               initialValues={{}}
               onSubmit={(values) => {
+                if (!user.avatar) {
+                  toast.error('Coloque seu foto');
+                  return;
+                }
                 if (
-                  !user.avatar ||
                   !user.uf ||
                   !user.city ||
                   user.uf === '0' ||
                   user.city === '0'
                 ) {
-                  toast.error('Coloque seu foto e a localidade');
+                  toast.error('Coloque sua localidade');
                   return;
                 }
                 if (user.online === false) {

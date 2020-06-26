@@ -39,7 +39,6 @@ function* forgotAPI({ payload }) {
 
 async function resetPass({ password, key }) {
   const response = await api.post(`/reset/${key}`, { password });
-  console.log(response);
   return response;
 }
 
