@@ -111,9 +111,7 @@ function Main() {
                 </option>
               ))}
           </select>
-          <Button color="rgb(15,60,190,0.9)" onClick={handleSubmitSearch}>
-            Procurar
-          </Button>
+          <Button onClick={handleSubmitSearch}>Procurar</Button>
         </SearchField>
         <h1>Pessoas precisando de você!</h1>
         <ProfilesField>
@@ -129,7 +127,7 @@ function Main() {
                   <p> {user.description} </p>
 
                   <a href={user.contact}>
-                    <Button color="rgb(15,60,190,0.9)">AJUDAR</Button>
+                    <Button>AJUDAR</Button>
                   </a>
                 </div>
               </Profile>

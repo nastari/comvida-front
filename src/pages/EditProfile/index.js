@@ -96,7 +96,7 @@ function EditProfile() {
             >
               <Form>
                 {user.online ? (
-                  <Button type="submit" color="rgb(2,2,250)" width="500">
+                  <Button type="submit" color="rgb(50,50,50)" width="500">
                     RETIRAR PERFIL ONLINE
                   </Button>
                 ) : (
@@ -113,7 +113,7 @@ function EditProfile() {
               }}
             >
               <Form>
-                <Button type="submit" color="rgb(150,20,40,1)" width="500">
+                <Button type="submit" color="rgb(150,20,40,0.9)" width="500">
                   DELETAR CONTA
                 </Button>
               </Form>

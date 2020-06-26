@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(0deg, #dedede 20%, white 70%);
 
   > h1 {
     margin: 40px 0px;
@@ -125,7 +126,7 @@ export const Pagination = styled.div`
     border-radius: 20px;
     transition: background 0.2s;
     &:hover {
-      background: rgb(15,60,90,0.2);
+      background: rgb(50,50,50,0.3);
     }
   }
 `;

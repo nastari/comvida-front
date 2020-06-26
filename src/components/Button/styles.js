@@ -4,7 +4,7 @@ export const Container = styled.button.attrs((props) => ({
   type: props.type,
 }))`
   border: 0;
-  background: ${(props) => (props.color ? props.color : 'rgb(25, 25, 25)')};
+  background: ${(props) => (props.color ? props.color : 'rgb(45, 45, 45)')};
   color: white;
   font-size: 16px;
   text-transform: uppercase;
