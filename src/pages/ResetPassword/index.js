@@ -7,7 +7,8 @@ import { Container, SubmitArea } from './styles';
 import Button from '../../components/Button';
 import * as userAction from '../../store/modules/user/actions';
 
-function ResetPassword() {
+function ResetPassword({ match }) {
+  const key = match.params.id;
   const dispatch = useDispatch();
   const resetSchema = Yup.object().shape({
     password: Yup.string()
@@ -29,15 +30,16 @@ function ResetPassword() {
         <Formik
           initialValues={{ password: '', confirm: '' }}
           onSubmit={(values) => {
-            dispatch(userAction.resetRequest(values.password));
+            values.key = key;
+            dispatch(userAction.resetRequest(values));
           }}
           validationSchema={resetSchema}
         >
           <Form>
-            <Field type="text" placeholder="Nova senha" name="password" />
+            <Field type="password" placeholder="Nova senha" name="password" />
             <ErrorMessage name="password" component="div" />
             <Field
-              type="text"
+              type="password"
               placeholder="Confirme sua nova senha"
               name="confirm"
             />

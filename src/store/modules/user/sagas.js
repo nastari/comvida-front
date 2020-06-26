@@ -37,13 +37,22 @@ function* forgotAPI({ payload }) {
   }
 }
 
+async function resetPass({ password, key }) {
+  const response = await api.post(`/reset/${key}`, { password });
+  console.log(response);
+  return response;
+}
+
 function* resetAPI({ payload }) {
   try {
-    const user = yield call(api.post, 'reset', payload);
-    yield put(userActions.resetSuccess(user.data));
+    const response = yield call(resetPass, payload);
+    const resp = response.data;
+    toast.success('Senha mudada com sucesso!');
+    yield put(userActions.resetSuccess(resp));
     history.push('/login');
   } catch (error) {
-    toast.error('Algo inesperado aconteceu.');
+    console.log(error);
+    toast.error('Algo inesperado aconteceu!.');
     yield put(userActions.resetFailure(error));
     history.push('/forgot');
   }

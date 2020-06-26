@@ -71,10 +71,10 @@ export function resetRequest(data) {
     payload: data,
   };
 }
-export function resetSuccess(data) {
+export function resetSuccess(payload) {
   return {
     type: '@user/reset_sucess',
-    payload: data,
+    payload,
   };
 }
 
