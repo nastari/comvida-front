@@ -7,12 +7,12 @@ function Footer() {
     <Container>
       <h1> colaboradores </h1>
       <div>
-        <a href="ttps://www.linkedin.com/in/gabriel-nastari/">
+        <a href="https://www.linkedin.com/in/gabriel-nastari/">
           Gabriel Nastari <FaLinkedinIn color="rgb(99, 165, 167)" />
         </a>
       </div>
       <div>
-        <a href="ttps://www.linkedin.com/in/julianoalves7/">
+        <a href="https://www.linkedin.com/in/julianoalves7/">
           Juliano Alves <FaLinkedinIn color="rgb(99, 165, 167)" />
         </a>
       </div>
