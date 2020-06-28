@@ -110,7 +110,7 @@ function Main() {
           </select>
           <Button onClick={handleSubmitSearch}>Procurar</Button>
         </SearchField>
-        <h1>Pessoas precisando de você!</h1>
+        <h1 className="slogan">Pessoas precisando de você!</h1>
         <ProfilesField>
           {profiles.length ? (
             profiles.map((user) => (

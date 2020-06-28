@@ -118,7 +118,7 @@ function EditProfile() {
               }}
             >
               <Form className="view-desktop">
-                <Button type="submit" color="rgb(150,20,40,1)" width="500">
+                <Button type="submit" color="rgb(150,20,40)" width="500">
                   DELETAR CONTA
                 </Button>
               </Form>

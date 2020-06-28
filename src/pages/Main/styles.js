@@ -31,6 +31,9 @@ export const Container = styled.div`
       white-space: normal;
       word-wrap: break-word;
     }
+    h1.slogan {
+      max-width: 80%;
+    }
   }
 `;
 
@@ -178,6 +181,11 @@ export const Profile = styled.div`
 
       button {
         margin-top: 5px;
+      }
+
+      h1,
+      h2 {
+        align-self: flex-start;
       }
 
       p {
