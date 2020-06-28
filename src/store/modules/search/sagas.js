@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import api from '../../../services/api';
 import * as searchActions from './actions';
 
-const whats = 'https://wa.me/+55';
+const whats = 'https://wa.me/55';
 
 function index({ uf, city }) {
   if (uf !== '0' && city !== '0') {
