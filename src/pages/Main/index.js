@@ -74,8 +74,6 @@ function Main() {
     setSelectedCity('0');
   }, [selectedUf]);
 
-  console.log(profiles);
-
   return (
     <>
       <Header />
@@ -86,6 +84,7 @@ function Main() {
             id="uf"
             value={selectedUf}
             onChange={handleSelectUf}
+            className="brnodisplay"
           >
             <option value="0">Selecione o estado</option>
             {ufs &&
@@ -101,6 +100,7 @@ function Main() {
             id="city"
             value={selectedCity}
             onChange={handleSelectCity}
+            className="brnodisplay"
           >
             <option value="0">Selecione a cidade</option>
             {cities &&
@@ -110,7 +110,9 @@ function Main() {
                 </option>
               ))}
           </select>
-          <Button onClick={handleSubmitSearch}>Procurar</Button>
+          <Button onClick={handleSubmitSearch} className="brnodisplay">
+            Procurar
+          </Button>
         </SearchField>
         <h1>Pessoas precisando de você!</h1>
         <ProfilesField>
@@ -118,7 +120,7 @@ function Main() {
             profiles.map((user) => (
               <Profile key={user.id}>
                 <img src={user.avatar.url} alt="usuario" />
-                <div>
+                <div className="break-description">
                   <h1>{user.name}</h1>
                   <h2>
                     {user.city} - {user.uf}
@@ -135,10 +137,14 @@ function Main() {
             <div className="find">
               <h1>Ainda não tem ninguém aqui não!</h1>
               <small>Não há resultados para página {page}</small>
-              <h2>
+              <h2 className="brnodisplay">
                 Mas você pode ajudar divulgando pra alguém que precisa! Que tal?
               </h2>
-              <img src={findSomeone} alt="findSomeone" />
+              <img
+                src={findSomeone}
+                alt="findSomeone"
+                className="brnodisplay"
+              />
             </div>
           )}
         </ProfilesField>

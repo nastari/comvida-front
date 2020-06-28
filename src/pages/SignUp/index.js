@@ -34,7 +34,7 @@ function SignUp() {
     <Container>
       {Try ? <Redirect to="/login" /> : null}
       <SubmitArea>
-        <img src={signup} alt="" />
+        <img src={signup} alt="" className="brnodisplay" />
         <Formik
           initialValues={{ name: '', email: '', password: '', confirm: '' }}
           onSubmit={(values) => {

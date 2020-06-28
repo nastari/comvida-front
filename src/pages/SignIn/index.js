@@ -39,7 +39,7 @@ function SignIn() {
             <Link to="/forgot">Esqueci minha senha</Link>
           </Form>
         </Formik>
-        <img src={family} alt="" />
+        <img src={family} alt="" className="brnodisplay" />
       </SubmitArea>
       <Link to="/">Voltar</Link>
     </Container>

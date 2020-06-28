@@ -27,4 +27,14 @@ export const Container = styled.div`
       font-weight: bold;
     }
   }
+
+  @media (max-width: 600px) {
+    img {
+      margin-left: 0px;
+    }
+
+    div {
+      margin-right: 0px;
+    }
+  }
 `;

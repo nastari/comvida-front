@@ -33,7 +33,7 @@ function ForgotPassword() {
             <Button type="submit">ENVIAR EMAIL</Button>
           </Form>
         </Formik>
-        <img src={image} alt="forgot" />
+        <img src={image} alt="forgot" className="brnodisplay" />
       </SubmitArea>
       <Link to="/">Voltar</Link>
     </Container>

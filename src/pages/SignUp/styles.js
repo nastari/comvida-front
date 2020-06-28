@@ -46,4 +46,9 @@ export const SubmitArea = styled.div`
     margin-left: 20px;
     height: 350px;
   }
+
+  @media only screen and (max-width: 768px) {
+.brnodisplay {
+    display: none;
+}
 `;

@@ -56,4 +56,10 @@ export const SubmitArea = styled.div`
       align-self: center;
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    .brnodisplay {
+      display: none;
+    }
+  }
 `;

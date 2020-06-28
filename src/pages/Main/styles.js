@@ -10,6 +10,28 @@ export const Container = styled.div`
   > h1 {
     margin: 40px 0px;
   }
+
+  @media (max-width: 768px) {
+    .brnodisplay {
+      width: 100%;
+      display: block;
+    }
+    img.brnodisplay {
+      width: 350px;
+      display: 350px;
+    }
+
+    h2.brnodisplay {
+      font-size: 16px;
+    }
+
+    select.brnodisplay {
+      display: inline-block;
+      width: 110px;
+      white-space: normal;
+      word-wrap: break-word;
+    }
+  }
 `;
 
 export const SearchField = styled.div`
@@ -20,7 +42,6 @@ export const SearchField = styled.div`
 
   select {
     border: 1px solid #dadada;
-    /* border: 0; */
     background: rgb(235, 230, 235);
     padding: 10px 10px 10px 20px;
     border-radius: 5px;
@@ -62,6 +83,12 @@ export const ProfilesField = styled.div`
       font-weight: bold;
     }
   }
+
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 export const Profile = styled.div`
   display: flex;
@@ -69,16 +96,12 @@ export const Profile = styled.div`
   align-items: center;
   height: 300px;
   flex-basis: 20%;
-  max-width: 600px;
-  min-width: 600px;
   padding: 10px;
   word-break: break-word;
 
   img {
     border-radius: 3px;
     width: 250px;
-    min-height: 250px;
-    min-width: 250px;
     height: 250px;
     margin-right: 20px;
   }
@@ -108,6 +131,39 @@ export const Profile = styled.div`
 
     a {
       margin-top: auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    img {
+      margin-right: 0px;
+      width: 100%;
+      height: 100%;
+      max-width: 300px;
+      max-height: 300px;
+    }
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      margin-top: 10px;
+
+      button {
+        margin-top: 0px;
+      }
+
+      p {
+        margin-top: 5px;
+      }
+    }
+
+    p {
+      width: 200px;
     }
   }
 `;
