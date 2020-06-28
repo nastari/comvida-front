@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import api from '../../../services/api';
 import * as searchActions from './actions';
 
-const whats = 'https://wa.me/';
+const whats = 'https://wa.me/+55';
 
 function index({ uf, city }) {
   if (uf !== '0' && city !== '0') {
@@ -19,7 +19,6 @@ function index({ uf, city }) {
 
 function* indexAPI({ payload }) {
   try {
-    console.log('e nada no saga');
     const resolve = yield call(index, payload);
     const users = resolve.data.map((user) => {
       user.contact = whats + user.whatsapp;

@@ -50,7 +50,6 @@ function* resetAPI({ payload }) {
     yield put(userActions.resetSuccess(resp));
     history.push('/login');
   } catch (error) {
-    console.log(error);
     toast.error('Algo inesperado aconteceu!.');
     yield put(userActions.resetFailure(error));
     history.push('/forgot');
