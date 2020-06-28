@@ -70,8 +70,8 @@ function EditProfile() {
     <>
       <Header />
       <Container>
-        <h1> Coloque seu perfil online preenchendo aqui. :)</h1>
-        <FormProfile>
+        <h1 className="ala"> Coloque seu perfil online preenchendo aqui. :)</h1>
+        <FormProfile className="main">
           <div>
             <AvatarInput />
 
@@ -99,7 +99,7 @@ function EditProfile() {
                 dispatch(userActions.updateRequest(values));
               }}
             >
-              <Form>
+              <Form className="view-desktop">
                 {user.online ? (
                   <Button type="submit" color="rgb(50,50,50)" width="500">
                     RETIRAR PERFIL ONLINE
@@ -117,7 +117,7 @@ function EditProfile() {
                 dispatch(userActions.deleteRequest());
               }}
             >
-              <Form>
+              <Form className="view-desktop">
                 <Button type="submit" color="rgb(150,20,40,0.9)" width="500">
                   DELETAR CONTA
                 </Button>
@@ -195,6 +195,54 @@ function EditProfile() {
               <ErrorMessage name="whatsapp" component="div" />
               <Button type="submit" color="rgb(50,50,50)" width="500">
                 ATUALIZAR PERFIL
+              </Button>
+            </Form>
+          </Formik>
+          <Formik
+            initialValues={{}}
+            onSubmit={(values) => {
+              if (!user.avatar) {
+                toast.error('Coloque seu foto');
+                return;
+              }
+              if (
+                !user.uf ||
+                !user.city ||
+                user.uf === '0' ||
+                user.city === '0'
+              ) {
+                toast.error('Coloque sua localidade');
+                return;
+              }
+              if (user.online === false) {
+                values.online = true;
+              } else {
+                values.online = false;
+              }
+              dispatch(userActions.updateRequest(values));
+            }}
+          >
+            <Form className="view-phone">
+              {user.online ? (
+                <Button type="submit" color="rgb(50,50,50)" width="500">
+                  RETIRAR PERFIL ONLINE
+                </Button>
+              ) : (
+                <Button type="submit" color="rgb(9,199,35)" width="500">
+                  POR PERFIL ONLINE
+                </Button>
+              )}
+            </Form>
+          </Formik>
+          <Formik
+            initialValues={{}}
+            onSubmit={() => {
+              dispatch(userActions.deleteRequest());
+            }}
+          >
+            <Form className="view-phone">
+              <Button type="submit" color="rgb(150,20,40,0.9)" width="500">
+                DELETAR CONTA
               </Button>
             </Form>
           </Formik>

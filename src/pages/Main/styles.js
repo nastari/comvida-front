@@ -177,11 +177,13 @@ export const Profile = styled.div`
       margin-top: 10px;
 
       button {
-        margin-top: 0px;
+        margin-top: 5px;
       }
 
       p {
         margin-top: 5px;
+        max-width: 300px;
+        width: 100%;
       }
     }
 
