@@ -49,6 +49,17 @@ export const SearchField = styled.div`
     height: 40px;
     margin-right: 10px;
   }
+
+  @media (max-width: 600px) {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: baseline;
+
+    select {
+      width: 100%;
+    }
+  }
 `;
 export const ProfilesField = styled.div`
   max-width: 1335px;
@@ -76,18 +87,30 @@ export const ProfilesField = styled.div`
       margin-top: -50px;
       margin-left: 100px;
     }
-
-    small {
-      color: #999;
-      font-size: 16px;
-      font-weight: bold;
-    }
   }
 
   @media (max-width: 600px) {
     display: flex;
     flex-direction: column;
+    align-self: center;
     justify-content: center;
+
+    h1.brnodisplay {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    h2.brnodisplay {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    img.brnodisplay {
+      align-self: flex-end;
+      margin-top: 0px;
+      height: 100%;
+      width: 100%;
+    }
   }
 `;
 export const Profile = styled.div`
@@ -167,7 +190,6 @@ export const Profile = styled.div`
     }
   }
 `;
-
 export const Pagination = styled.div`
   margin: 10px 0px 80px 0px;
 

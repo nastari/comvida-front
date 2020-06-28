@@ -84,7 +84,6 @@ function Main() {
             id="uf"
             value={selectedUf}
             onChange={handleSelectUf}
-            className="brnodisplay"
           >
             <option value="0">Selecione o estado</option>
             {ufs &&
@@ -100,7 +99,6 @@ function Main() {
             id="city"
             value={selectedCity}
             onChange={handleSelectCity}
-            className="brnodisplay"
           >
             <option value="0">Selecione a cidade</option>
             {cities &&
@@ -110,9 +108,7 @@ function Main() {
                 </option>
               ))}
           </select>
-          <Button onClick={handleSubmitSearch} className="brnodisplay">
-            Procurar
-          </Button>
+          <Button onClick={handleSubmitSearch}>Procurar</Button>
         </SearchField>
         <h1>Pessoas precisando de você!</h1>
         <ProfilesField>
@@ -135,8 +131,8 @@ function Main() {
             ))
           ) : (
             <div className="find">
-              <h1>Ainda não tem ninguém aqui não!</h1>
-              <small>Não há resultados para página {page}</small>
+              <h1 className="brnodisplay">Ainda não tem ninguém aqui não!</h1>
+
               <h2 className="brnodisplay">
                 Mas você pode ajudar divulgando pra alguém que precisa! Que tal?
               </h2>
