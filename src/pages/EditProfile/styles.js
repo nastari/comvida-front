@@ -40,8 +40,8 @@ export const SearchField = styled.div`
   }
 
   @media (max-width: 600px) {
-    display: flex !important;
-    flex-direction: column !important;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: baseline;
 
@@ -61,7 +61,7 @@ export const FormProfile = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: baseline;
+    align-items: flex-start;
 
     .view-desktop {
       display: none;

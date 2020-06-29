@@ -4,7 +4,6 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { Redirect } from 'react-router-dom';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import { Container, FormProfile } from './styles';

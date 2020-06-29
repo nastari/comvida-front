@@ -165,7 +165,7 @@ export const Profile = styled.div`
     align-items: flex-start;
     align-self: flex-start;
     margin-top: 15px;
-    height: 240px;
+    height: 250px;
 
     h1 {
       font-size: 21px;
