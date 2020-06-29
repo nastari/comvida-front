@@ -62,7 +62,7 @@ export const FormProfile = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-
+    margin-bottom: 80px;
     .view-desktop {
       display: none;
     }
