@@ -120,7 +120,7 @@ function Main() {
           </div>
         ) : (
           <>
-            <ProfilesField profiles={profiles}>
+            <ProfilesField>
               {profiles.length ? (
                 profiles.map((user) => (
                   <Profile key={user.id}>

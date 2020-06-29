@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   background: url(${foto}) no-repeat top center;
-  /* background-image: linear-gradient(90deg, blue 10%,  #08aeea 100%); */
+  /* background-image: linear-gradient(90deg, #B100BD 10%,  pink 100%); */
 
   img {
     height: 50px;

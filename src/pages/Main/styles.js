@@ -94,9 +94,8 @@ export const ProfilesField = styled.div`
   max-width: 1335px;
   margin: 0 auto;
   display: flex;
+  justify-content: center;
   flex-flow: row wrap;
-  justify-content: flex-start;
-  width: ${(props) => (props.profiles.length ? '80%' : null)};
 
   div.find {
     display: flex;

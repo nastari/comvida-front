@@ -1,5 +1,4 @@
 export function indexRequest(uf, city) {
-  console.log('e nada na action tbm');
   return {
     type: '@search/index_request',
     payload: { uf, city },

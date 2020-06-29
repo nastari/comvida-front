@@ -7,9 +7,9 @@ import history from '../../../services/history';
 function* login({ payload }) {
   try {
     const session = yield call(api.post, 'session', payload);
-
     yield put(authActions.loginSuccess(session.data));
-    history.push('/main');
+    toast.success('Logado com sucesso!');
+    history.push('/');
   } catch (error) {
     toast.error('Verifique seus dados.');
     yield put(authActions.loginFailure(error));
