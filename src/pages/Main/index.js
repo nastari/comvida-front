@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
+import { FaSpinner } from 'react-icons/fa';
 import {
   Container,
   SearchField,
@@ -26,6 +27,7 @@ function Main() {
   const [page, setPage] = useState(1);
 
   const profiles = useSelector((state) => state.search.profiles);
+  const loading = useSelector((state) => state.search.loading);
 
   function handleSubmitSearch() {
     setPage(1);
@@ -111,71 +113,83 @@ function Main() {
           <Button onClick={handleSubmitSearch}>Procurar</Button>
         </SearchField>
         <h1 className="slogan">Pessoas precisando de você!</h1>
-        <ProfilesField>
-          {profiles.length ? (
-            profiles.map((user) => (
-              <Profile key={user.id}>
-                <img src={user.avatar.url} alt="usuario" />
-                <div className="break-description">
-                  <h1>{user.name}</h1>
-                  <h2>
-                    {user.city} - {user.uf}
-                  </h2>
-                  <p> {user.description} </p>
-
-                  <a href={user.contact}>
-                    <Button>AJUDAR</Button>
-                  </a>
-                </div>
-              </Profile>
-            ))
-          ) : (
-            <div className="find">
-              <h1 className="brnodisplay">Ainda não tem ninguém aqui não!</h1>
-
-              <h2 className="brnodisplay">
-                Mas você pode ajudar divulgando pra alguém que precisa! Que tal?
-              </h2>
-              <img
-                src={findSomeone}
-                alt="findSomeone"
-                className="brnodisplay"
-              />
-            </div>
-          )}
-        </ProfilesField>
-        <Pagination>
+        {loading ? (
+          <div className="loading">
+            <h2>Carregando</h2>
+            <FaSpinner size={24} />
+          </div>
+        ) : (
           <>
-            {page === 1 ? (
+            <ProfilesField profiles={profiles}>
+              {profiles.length ? (
+                profiles.map((user) => (
+                  <Profile key={user.id}>
+                    <img src={user.avatar.url} alt="usuario" />
+                    <div className="break-description">
+                      <h1>{user.name}</h1>
+                      <h2>
+                        {user.city} - {user.uf}
+                      </h2>
+                      <p> {user.description} </p>
+
+                      <a href={user.contact}>
+                        <Button>AJUDAR</Button>
+                      </a>
+                    </div>
+                  </Profile>
+                ))
+              ) : (
+                <div className="find">
+                  <h1 className="brnodisplay">
+                    Ainda não tem ninguém aqui não!
+                  </h1>
+
+                  <h2 className="brnodisplay">
+                    Mas você pode ajudar divulgando pra alguém que precisa! Que
+                    tal?
+                  </h2>
+                  <img
+                    src={findSomeone}
+                    alt="findSomeone"
+                    className="brnodisplay"
+                  />
+                </div>
+              )}
+            </ProfilesField>
+            <Pagination>
               <>
-                <button type="button">{page}</button>
-                <button type="button" onClick={() => setPage(page + 1)}>
-                  {page + 1}
-                </button>
-                <button type="button" onClick={() => setPage(page + 2)}>
-                  {page + 2}
-                </button>
+                {page === 1 ? (
+                  <>
+                    <button type="button">{page}</button>
+                    <button type="button" onClick={() => setPage(page + 1)}>
+                      {page + 1}
+                    </button>
+                    <button type="button" onClick={() => setPage(page + 2)}>
+                      {page + 2}
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    {page > 2 && !profiles.length ? (
+                      <button type="button" onClick={() => setPage(1)}>
+                        1
+                      </button>
+                    ) : null}
+                    <button type="button" onClick={() => setPage(page - 1)}>
+                      {page - 1}
+                    </button>
+                    <button type="button" onClick={() => setPage(page)}>
+                      {page}
+                    </button>
+                    <button type="button" onClick={() => setPage(page + 1)}>
+                      {page + 1}
+                    </button>
+                  </>
+                )}
               </>
-            ) : (
-              <>
-                {page > 2 && !profiles.length ? (
-                  <button type="button" onClick={() => setPage(1)}>
-                    1
-                  </button>
-                ) : null}
-                <button type="button" onClick={() => setPage(page - 1)}>
-                  {page - 1}
-                </button>
-                <button type="button" onClick={() => setPage(page)}>
-                  {page}
-                </button>
-                <button type="button" onClick={() => setPage(page + 1)}>
-                  {page + 1}
-                </button>
-              </>
-            )}
+            </Pagination>
           </>
-        </Pagination>
+        )}
         <Footer />
       </Container>
     </>

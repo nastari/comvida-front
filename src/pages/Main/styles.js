@@ -1,4 +1,13 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -9,6 +18,23 @@ export const Container = styled.div`
 
   > h1 {
     margin: 40px 0px;
+  }
+
+  .loading {
+    display: flex;
+    font-size: 30px;
+    justify-content: center;
+    align-items: baseline;
+    letter-spacing: -3px;
+    color: rgb(50, 50, 50);
+    margin-top: 100px;
+    margin-bottom: 200px;
+    > svg {
+      animation: ${rotate360} 2s linear infinite;
+      transform: translateZ(0);
+      margin-left: 10px;
+      color: rgb(50, 50, 50);
+    }
   }
 
   @media (max-width: 768px) {
@@ -70,6 +96,7 @@ export const ProfilesField = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+  width: ${(props) => (props.profiles.length ? '80%' : null)};
 
   div.find {
     display: flex;

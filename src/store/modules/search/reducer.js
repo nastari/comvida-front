@@ -2,6 +2,7 @@ import produce from 'immer';
 
 const INITIAL_STATE = {
   profiles: [],
+  loading: false,
 };
 
 export default function search(state = INITIAL_STATE, action) {
