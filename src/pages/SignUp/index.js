@@ -52,7 +52,7 @@ function SignUp() {
             <Field type="password" placeholder="Senha" name="password" />
             <ErrorMessage name="password" component="div" />
             <Field
-              type="text"
+              type="password"
               placeholder="Confirme sua senha"
               name="confirm"
             />

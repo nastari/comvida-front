@@ -27,8 +27,7 @@ function Main() {
   const [page, setPage] = useState(1);
 
   const profiles = useSelector((state) => state.search.profiles);
-  // const loading = useSelector((state) => state.search.loading);
-  const { loading } = store.getState().search;
+  const loading = useSelector((state) => state.search.loading);
 
   function handleSubmitSearch() {
     setPage(1);

@@ -117,7 +117,7 @@ function EditProfile() {
               }}
             >
               <Form className="view-desktop">
-                <Button type="submit" color="rgb(150,20,40)" width="500">
+                <Button type="submit" color="rgb(50,50,50)" width="500">
                   DELETAR CONTA
                 </Button>
               </Form>
@@ -240,7 +240,7 @@ function EditProfile() {
             }}
           >
             <Form className="view-phone">
-              <Button type="submit" color="rgb(150,20,40,0.9)" width="500">
+              <Button type="submit" color="rgb(50,50,50)" width="500">
                 DELETAR CONTA
               </Button>
             </Form>
