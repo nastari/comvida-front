@@ -13,7 +13,7 @@ import findSomeone from '../../assets/images/search.svg';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
-
+import { store } from '../../store/index';
 import * as searchActions from '../../store/modules/search/actions';
 
 function Main() {
@@ -27,7 +27,8 @@ function Main() {
   const [page, setPage] = useState(1);
 
   const profiles = useSelector((state) => state.search.profiles);
-  const loading = useSelector((state) => state.search.loading);
+  // const loading = useSelector((state) => state.search.loading);
+  const { loading } = store.getState().search;
 
   function handleSubmitSearch() {
     setPage(1);
