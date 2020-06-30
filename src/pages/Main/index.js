@@ -13,7 +13,6 @@ import findSomeone from '../../assets/images/search.svg';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
-import { store } from '../../store/index';
 import * as searchActions from '../../store/modules/search/actions';
 
 function Main() {
@@ -123,7 +122,7 @@ function Main() {
             <ProfilesField>
               {profiles.length ? (
                 profiles.map((user) => (
-                  <Profile key={user.id}>
+                  <Profile key={user.id} profiles={profiles}>
                     <img src={user.avatar.url} alt="usuario" />
                     <div className="break-description">
                       <h1>{user.name}</h1>

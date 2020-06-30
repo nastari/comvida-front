@@ -90,6 +90,7 @@ export const SearchField = styled.div`
     }
   }
 `;
+
 export const ProfilesField = styled.div`
   max-width: 1335px;
   margin: 0 auto;
@@ -142,6 +143,7 @@ export const ProfilesField = styled.div`
     }
   }
 `;
+
 export const Profile = styled.div`
   display: flex;
   justify-content: center;

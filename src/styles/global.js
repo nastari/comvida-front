@@ -36,5 +36,8 @@ button {
 .Toastify__toast--error {
   background: #ECA9A9;
 }
+.Toastify__toast--warning {
+  background: blue;
+}
 
 `;
