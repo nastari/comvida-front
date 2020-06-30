@@ -10,6 +10,7 @@
 
 A platform for publicizing emergency cases against covid-19 in Brazil
 
+</div>
 ## ✨ Features
 
 - 🌈 User registration
