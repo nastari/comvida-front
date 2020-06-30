@@ -8,7 +8,7 @@ function* login({ payload }) {
   try {
     const session = yield call(api.post, 'session', payload);
     yield put(authActions.loginSuccess(session.data));
-    toast.warning('Atualize a página, aperte F5');
+    toast.warning('Atualize a página');
     history.push('/');
   } catch (error) {
     toast.error('Verifique seus dados.');
