@@ -1,20 +1,21 @@
 <p align="center">
   <a href="https://www.comvida.online">
-    <img width="200" src="https://drive.google.com/file/d/1Hov9LeEk3mgUclHN97VfZhfO6ikbkCLq/view?usp=sharing">
+    <img width="200" src="https://users-comvida.s3.amazonaws.com/ComVida+(1).svg">
   </a>
 </p>
 
-<h1 align="center">Com vida</h1>
 
 <div align="center">
 
-A platform for publicizing emergency cases against covid-19 in Brazil
+
+A platform to publicize emergency cases at the time Covid-19 in Brazil
 
 </div>
 
 ## ✨ Features
 
 - 🌈 User registration
+- 📦 Persistence of user data and navigation
 - 🌍 Search by location
 - 🛡 Password recovery
 - 🤝 External link for communication on WhatsApp
